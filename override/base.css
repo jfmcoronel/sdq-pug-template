@@ -1,0 +1,444 @@
+/* 
+================================================================================
+Printing
+================================================================================
+*/
+
+body {
+    line-height: unset;
+}
+
+.reveal a {
+    pointer-events: auto;
+}
+
+.slides div {
+  font-size: 24pt;
+}
+
+/* 
+================================================================================
+Padding
+================================================================================
+*/
+
+.slides .padleft-60 {
+  padding-left: 60px;
+  margin-right: 60px;
+}
+
+/* 
+================================================================================
+Margin
+================================================================================
+*/
+
+.slides .margintop-0 {
+  margin-top: 0;
+}
+
+.slides .marginbot-0 {
+  margin-bottom: 0;
+}
+
+/* 
+================================================================================
+Fonts
+================================================================================
+*/
+
+.slides .font-12 * {
+  font-size: 12pt ;
+}
+
+.slides .font-14 * {
+  font-size: 14pt ;
+}
+
+.slides .font-16 * {
+  font-size: 16pt ;
+}
+
+.slides .font-18 * {
+  font-size: 18pt ;
+}
+
+.slides .font-20 * {
+  font-size: 20pt ;
+}
+
+.slides .font-22 * {
+  font-size: 22pt ;
+}
+
+.slides .font-24 * {
+  font-size: 24pt ;
+}
+
+.slides .font-26 * {
+  font-size: 26pt ;
+}
+
+.slides .font-28 * {
+  font-size: 28pt ;
+}
+
+.slides .font-30 * {
+  font-size: 30pt ;
+}
+
+/* 
+================================================================================
+Highlighting
+================================================================================
+*/
+
+.reveal .slides section .fragment.highlight-green.visible {
+  color: lightgreen;
+}
+
+.reveal .slides section .fragment.highlight-gray.visible {
+  color: gray;
+}
+
+/* 
+================================================================================
+Colors
+================================================================================
+*/
+
+.green {
+  color: lightgreen;
+}
+
+.red {
+  color: #ff2c2d;
+}
+
+.orange {
+  color: orange;
+}
+
+.violet {
+  color: violet;
+}
+
+.pink {
+  color: pink;
+}
+
+.bgcolor {
+  color: #002a36;
+}
+
+.gray {
+  color: gray;
+}
+
+.blue {
+  color: blue;
+}
+
+.darkblue {
+  color: darkblue;
+}
+
+.cyan {
+  color: cyan;
+}
+
+.white {
+  color: white;
+}
+
+.yellow {
+  color: yellow;
+}
+
+/* 
+================================================================================
+Transitions
+================================================================================
+*/
+
+.done {
+  color: gray;
+}
+
+.next {
+  color: lightgreen;
+}
+
+
+/* 
+================================================================================
+Tables
+================================================================================
+*/
+
+.reveal table.border td {
+  border: 2px solid !important;
+}
+
+.noborder {
+  border: 0 !important;
+}
+
+.topborder {
+  border-top: 4px solid !important;
+}
+
+.botborder {
+  border-bottom: 4px solid !important;
+}
+
+.leftborder {
+  border-left: 4px solid !important;
+}
+
+.rightborder {
+  border-right: 4px solid !important;
+}
+
+.reveal table.inline {
+  display: inline;
+  margin: 20px;
+}
+
+.reveal table.mid td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.reveal th.vertmid {
+  vertical-align: middle;
+}
+
+.reveal table.vertmid td {
+  vertical-align: middle;
+}
+
+.reveal table.mid th {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.reveal td.mid {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.reveal .ital {
+  font-style: italic;
+}
+
+.reveal table.valign td, .reveal table.valign th {
+  vertical-align: middle;
+}
+
+table.small {
+  font-size: 20pt;
+}
+
+table.center tr, table.center td {
+  text-align: center !important;
+}
+
+/* 
+================================================================================
+Images
+================================================================================
+*/
+
+img.fragment.hider.visible:not(.current-fragment) {
+  display: none !important;
+  height: 0px !important;
+  line-height: 0px !important;
+  font-size: 0px !important;
+}
+
+img.fragment.hider {
+  transition: none !important;
+}
+
+img.fragment.remove.visible {
+  display: none !important;
+}
+
+img.fragment.add:not(.visible) {
+  position: absolute !important;
+}
+
+/* 
+================================================================================
+Positioning
+================================================================================
+*/
+
+.lower-100 {
+  margin-top: 100px !important;
+}
+
+.higher-20 {
+  margin-top: -20px !important;
+}
+
+.higher-30 {
+  margin-top: -30px !important;
+}
+
+.higher-50 {
+  margin-top: -50px !important;
+}
+
+div.left {
+  float: left;
+  width: 50%;
+  margin: 0;
+}
+
+div.right {
+  float: right;
+  width: 50%;
+  margin: 0;
+}
+
+div.clear {
+  clear: both;
+  float: none;
+}
+
+.table1-3 {
+  width: 100%;
+  display: -webkit-box;
+  /* iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* Firefox 19- */
+  display: -ms-flexbox;
+  /* IE 10 */
+  display: -webkit-flex;
+  /* Chrome */
+  display: flex;
+  /* Opera 12.1, Firefox 20+ */
+  /* iOS 6-, Safari 3.1-6 */
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: justify;
+  /* Firefox 19- */
+  -moz-flex-direction: row;
+  -moz-justify-content: space-between;
+  /* Chrome */
+  -webkit-flex-direction: row;
+  -webkit-justify-content: space-between;
+  /* IE10 */
+  -ms-flex-direction: row;
+  -ms-justify-content: space-between;
+  /* Opera 12.1, Firefox 20+ */
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+div.div1-3 {
+  width: 33%;
+  margin: 0;
+}
+
+
+/* 
+================================================================================
+Sizing
+================================================================================
+*/
+
+.size-10 {
+  width: 10% !important;
+}
+
+.size-20 {
+  width: 20% !important;
+}
+
+.size-25 {
+  width: 25% !important;
+}
+
+.size-30 {
+  width: 30% !important;
+}
+
+.size-33 {
+  width: 33% !important;
+}
+
+.size-40 {
+  width: 40% !important;
+}
+
+.size-50 {
+  width: 50% !important;
+}
+
+.size-60 {
+  width: 60% !important;
+}
+
+.size-66 {
+  width: 66% !important;
+}
+
+.size-70 {
+  width: 70% !important;
+}
+
+.size-75 {
+  width: 75% !important;
+}
+
+.size-80 {
+  width: 80% !important;
+}
+
+.size-90 {
+  width: 90% !important;
+}
+
+.size-100 {
+  width: 100% !important;
+}
+
+/* 
+================================================================================
+Horizontal alignment
+================================================================================
+*/
+
+.hleft {
+  text-align: left;
+}
+
+.hcenter {
+  text-align: center;
+}
+
+/* 
+================================================================================
+Background color
+================================================================================
+*/
+
+.alpha {
+  background: rgba(0, 0, 0, 0.75) !important;
+}
+
+/* 
+================================================================================
+Styling
+================================================================================
+*/
+
+.b {
+  font-weight: bold !important;
+}
+
+.u {
+  text-decoration: underline !important;
+}

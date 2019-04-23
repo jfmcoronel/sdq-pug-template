@@ -1,0 +1,164 @@
+mixin slide
+  - console.log(attributes);
+  //- -var isMarkdown = (type && type==='markdown') ? true : false;
+
+  section&attributes(attributes)
+    if !!attributes['data-markdown']
+      script(type="text/template")
+        block
+    else
+      block
+
+block config
+  -
+    const config = {
+      title: 'Reveal.js + Pug',
+      description: 'A framework for easily creating beautiful presentations using HTML.',
+      author: {
+        name: 'Hakim El Hattab',
+        email: 'hakim.elhattab@gmail.com',
+        link: 'http://hakim.se',
+        twitter: 'hakimel',
+        github: 'hakimel',
+      },
+      theme: 'black',
+    };
+  -
+
+doctype html
+html
+
+  head
+    meta(charset="utf-8")
+    meta(
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    )
+
+    block title
+      title= config.title
+      meta(name="description" content=config.description)
+
+      link(rel="stylesheet" href="base/css/reveal.css")
+
+      link(rel="stylesheet" href="base/css/reset.css")
+      link(rel="stylesheet" href="base/css/reveal.css")
+      link(rel="stylesheet" href="base/lib/css/monokai.css")
+
+      block theme
+        link#theme(rel="stylesheet" href= `base/css/theme${config.theme}.css`)
+
+      block styles
+
+      script.
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+  body
+    .reveal
+      .slides
+        block slides
+
+        block extras
+
+        block defaultscripts
+          script(src="base/js/reveal.js")
+          script.
+            Reveal.initialize({
+              controls: true,
+              controlsTutorial: true,
+              controlsLayout: 'bottom-right',
+              controlsBackArrows: 'faded',
+              progress: true,
+              slideNumber: false,
+              hash: false,
+              history: false,
+              keyboard: true,
+              overview: true,
+              center: true,
+              touch: true,
+              loop: false,
+              rtl: false,
+              navigationMode: 'default',
+              shuffle: false,
+              fragments: true,
+              fragmentsInURL: false,
+              embedded: false,
+              help: true,
+              showNotes: false,
+              autoPlayMedia: null,
+              preloadIframes: null,
+              autoSlide: 0,
+              autoSlideStoppable: true,
+              autoSlideMethod: Reveal.navigateNext,
+              defaultTiming: 120,
+              mouseWheel: false,
+              hideInactiveCursor: true,
+              hideCursorTime: 5000,
+              hideAddressBar: true,
+              previewLinks: false,
+              transition: 'slide',
+              transitionSpeed: 'default',
+              backgroundTransition: 'fade',
+              viewDistance: 3,
+              parallaxBackgroundImage: '',
+              parallaxBackgroundSize: '',
+              parallaxBackgroundHorizontal: null,
+              parallaxBackgroundVertical: null,
+              display: 'block',
+
+              pdfMaxPagesPerSlide: 8,
+              history: true,
+              math: {
+                mathjax: 'base/override/MathJax.js',
+                config: 'TeX-AMS_HTML-full'
+              },
+              dependencies: [
+                { src: 'base/plugin/math/math.js', async: true },
+                { src: 'base/plugin/notes/notes.js', async: true },
+                { src: 'base/plugin/highlight/highlight.js', async: true }
+              ]
+            });
+
+          script(src="base/override/jquery.min.js")
+          script.
+            // Automatic fragment numbering
+            var fragmentNumbering = function ( event ) {
+              var fragments = $(event.currentSlide).find('.auto-fragment .fragment');
+              console.log(fragments);
+              var order = new Array(fragments.length);
+
+              var runningIndex = 0;
+              $(fragments).not('[data-order]').each( function () {
+                runningIndex += 1;
+                order[runningIndex] = [ $(this) ];
+              });
+
+              runningIndex += 1;
+
+              $(fragments).filter('[data-order]').each( function () { 
+                var localIndex = parseInt($(this).attr('data-order'));
+                if (localIndex < 0) {
+                  alert('Invalid data-order: ' + localIndex);
+                  return;
+                }
+                index = runningIndex + localIndex;
+                if (typeof order[index] == 'undefined') {
+                  order[index] = [ $(this) ];
+                } else {
+                  order[index].push($(this));
+                }
+              });
+
+              console.log(order);
+              $(order).each( function (index) {
+                $(this).each( function () { 
+                  $(this).attr('data-fragment-index', index);
+                })
+              });
+            };
+            Reveal.addEventListener('ready', fragmentNumbering);
+            Reveal.addEventListener('slidechanged', fragmentNumbering);
